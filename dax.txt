@@ -1,0 +1,22 @@
+Total Revenue = SUM( 'olist_final_for_powerbi'[total_revenue] )
+
+Total Orders = DISTINCTCOUNT( 'olist_final_for_powerbi'[order_id] )
+
+Avg Delivery Days = AVERAGE( 'olist_final_for_powerbi'[actual_delivery_days] )
+
+Late Rate = 
+VAR LateCount = SUM( 'olist_final_for_powerbi'[late_flag] )
+VAR Total = COUNTROWS( 'olist_final_for_powerbi' )
+RETURN
+IF(Total = 0, 0, DIVIDE(LateCount, Total))
+
+Avg Delay Days = AVERAGE( 'olist_final_for_powerbi'[days_diff] )
+
+Revenue by Category = SUM( 'olist_final_for_powerbi'[price] )
+
+Avg Delivery Days = AVERAGE(
+
+ 'olist_final_for_powerbi'[actual_delivery_days] )
+
+
+#EF6F6C #F4A261 #FFCF40 #8E8E93 #FFFFFF.
